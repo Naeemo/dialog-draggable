@@ -1,0 +1,64 @@
+{
+  "name": "dialog-draggable",
+  "version": "0.0.0",
+  "description": "Makes HTML <dialog> draggable.",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/dialog-draggable.umd.cjs",
+  "module": "./dist/dialog-draggable.js",
+  "exports": {
+    ".": {
+      "import": "./dist/dialog-draggable.js",
+      "require": "./dist/dialog-draggable.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naeemo/dialog-draggable.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "types": "src/index.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [
+    "dialog",
+    "draggable",
+    "html dialog element"
+  ],
+  "author": "Naeemo <naeemo@qq.com>",
+  "homepage": "https://github.com/Naeemo/dialog-draggable",
+  "bugs": "https://github.com/Naeemo/dialog-draggable/issues",
+  "private": false,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.7.15",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "~8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.2",
+    "vite": "^3.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(ts|md|html)": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
