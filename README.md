@@ -20,7 +20,23 @@ import { makeDialogDraggable } from 'dialog-draggable';
 makeDialogDraggable();
 ```
 
-## Options
+## Develop
+
+```shell
+pnpm install
+```
+
+### local dev preview
+
+```shell
+pnpm dev
+```
+
+### test
+
+```shell
+pnpm test
+```
 
 ---
 
