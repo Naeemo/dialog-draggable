@@ -7,11 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dialog-draggable</title>
 </head>
-<body>
+<body style="background-color: lightskyblue;height: 100%;">
+<dialog id="dialog">
+    <h1>I am a dialog！</h1>
+</dialog>
 <script type="module">
     import {makeDialogDraggable} from "./src";
 
     makeDialogDraggable()
+    const dialog = document.querySelector('#dialog')
+    dialog.showModal()
 </script>
 </body>
 </html>
