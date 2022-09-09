@@ -1,10 +1,10 @@
 # Dialog-draggable
 
 <p>
-  <a href="https://npmcharts.com/compare/dialog-draggble?minimal=true"><img src="https://img.shields.io/npm/dm/dialog-draggble.svg?sanitize=true" alt="Downloads"></a>
+  <a href="https://npmcharts.com/compare/dialog-draggable?minimal=true"><img src="https://img.shields.io/npm/dm/dialog-draggable.svg?sanitize=true" alt="Downloads"></a>
   <a href="https://www.jsdelivr.com/package/npm/dialog-draggable"><img src="https://data.jsdelivr.com/v1/package/npm/dialog-draggable/badge" ></a>
-  <a href="https://www.npmjs.com/package/dialog-draggble"><img src="https://img.shields.io/npm/v/dialog-draggble.svg?sanitize=true" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/dialog-draggble"><img src="https://img.shields.io/npm/l/dialog-draggble.svg?sanitize=true" alt="License"></a>
+  <a href="https://www.npmjs.com/package/dialog-draggable"><img src="https://img.shields.io/npm/v/dialog-draggable.svg?sanitize=true" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/dialog-draggable"><img src="https://img.shields.io/npm/l/dialog-draggable.svg?sanitize=true" alt="License"></a>
 </p>
 
 
