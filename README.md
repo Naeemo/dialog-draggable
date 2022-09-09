@@ -1,4 +1,5 @@
 # Dialog-draggable
+
 <p>
   <a href="https://npmcharts.com/compare/svga-web?minimal=true"><img src="https://img.shields.io/npm/dm/svga-web.svg?sanitize=true" alt="Downloads"></a>
   <a href="https://www.jsdelivr.com/package/npm/dialog-draggable"><img src="https://data.jsdelivr.com/v1/package/npm/dialog-draggable/badge" ></a>
@@ -8,6 +9,8 @@
 
 
 Makes the HTML element [\<dialog\>] draggable.
+
+[Live demo](https://naeemo.github.io/dialog-draggable)
 
 ## Quick start
 
