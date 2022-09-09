@@ -9,6 +9,10 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
     const { x, y } = getCssTranslateCoords(target.style.transform)
     const xOffset = pointerDownEvt.clientX - target.offsetLeft - x
     const yOffset = pointerDownEvt.clientY - target.offsetTop - y
+    const xMin = -target.offsetLeft
+    const xMax = window.innerWidth - target.offsetLeft - target.offsetWidth
+    const yMin = -target.offsetTop
+    const yMax = window.innerHeight - target.offsetTop - target.offsetHeight
     if (xOffset < 0 || xOffset > target.offsetWidth) {
         return
     }
@@ -18,8 +22,11 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
 
     target.setPointerCapture(pointerDownEvt.pointerId)
     const handleMove = (pointerMoveEvt: PointerEvent) => {
-        const x = pointerMoveEvt.clientX - target.offsetLeft - xOffset
-        const y = pointerMoveEvt.clientY - target.offsetTop - yOffset
+        const xMoved = pointerMoveEvt.clientX - target.offsetLeft - xOffset
+        const yMoved = pointerMoveEvt.clientY - target.offsetTop - yOffset
+        const x = Math.min(Math.max(xMin, xMoved), xMax)
+        const y = Math.min(Math.max(yMin, yMoved), yMax)
+
         target.style.transform = `translate3d(${x}px, ${y}px, 0)`
     }
     const handleRelease = (pointerUpEvt: PointerEvent) => {
