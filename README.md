@@ -12,7 +12,7 @@ pnpm add dialog-draggable
 # npm i dialog-draggable
 ```
 
-make `<dialog\>` draggable
+make `<dialog>` draggable
 
 ```typescript
 import { makeDialogDraggable } from 'dialog-draggable';

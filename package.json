@@ -26,7 +26,8 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest",
-    "build": "vite build"
+    "build": "vite build",
+    "build:doc": "vite build --mode doc"
   },
   "keywords": [
     "dialog",
