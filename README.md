@@ -1,4 +1,11 @@
 # Dialog-draggable
+<p>
+  <a href="https://npmcharts.com/compare/svga-web?minimal=true"><img src="https://img.shields.io/npm/dm/svga-web.svg?sanitize=true" alt="Downloads"></a>
+  <a href="https://www.jsdelivr.com/package/npm/dialog-draggable"><img src="https://data.jsdelivr.com/v1/package/npm/dialog-draggable/badge" ></a>
+  <a href="https://www.npmjs.com/package/svga-web"><img src="https://img.shields.io/npm/v/svga-web.svg?sanitize=true" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/svga-web"><img src="https://img.shields.io/npm/l/svga-web.svg?sanitize=true" alt="License"></a>
+</p>
+
 
 Makes the HTML element [\<dialog\>] draggable.
 
