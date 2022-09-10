@@ -12,11 +12,18 @@
     <h1>I am a dialog！</h1>
 </dialog>
 <script type="module">
-    import {makeDialogDraggable} from "https://cdn.jsdelivr.net/npm/dialog-draggable@latest/dist/dialog-draggable.js";
+    let dd
+    if (import.meta.env?.MODE === 'development') {
+        dd = import('../src/index')
+    } else {
+        dd = import("https://cdn.jsdelivr.net/npm/dialog-draggable@latest/dist/dialog-draggable.js")
+    }
 
-    makeDialogDraggable()
-    const dialog = document.querySelector('#dialog')
-    dialog.showModal()
+    dd.then(({makeDialogDraggable}) => {
+        makeDialogDraggable()
+        const dialog = document.querySelector('#dialog')
+        dialog.showModal()
+    })
 </script>
 </body>
 </html>
