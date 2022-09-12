@@ -1,6 +1,6 @@
 {
   "name": "dialog-draggable",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Makes HTML <dialog> draggable.",
   "type": "module",
   "files": [
