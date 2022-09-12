@@ -34,6 +34,7 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
         calculateTransform(pointerMoveEvt.clientX, pointerMoveEvt.clientY)
 
     const handleTouchMove = (touchMoveEvt: TouchEvent) => {
+        touchMoveEvt.preventDefault()
         const clientX = touchMoveEvt.touches[0].clientX
         const clientY = touchMoveEvt.touches[0].clientY
         calculateTransform(clientX, clientY)
