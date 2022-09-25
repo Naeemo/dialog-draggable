@@ -30,6 +30,23 @@ import { makeDialogDraggable } from 'dialog-draggable';
 makeDialogDraggable();
 ```
 
+## Trigger dragging by inner dom
+
+add `data-dialog-draggable` attribute to inner tags, so they can trigger the outer `<dialog>` dragging. Notice
+`<button>` and `<a>` tags are excluded.
+
+```html
+<!-- Example -->
+<dialog id="dialog">
+  <nav data-dialog-draggable>
+    Dialog title
+    <!-- buttons won't trigger dragging -->
+    <button type="button">X</button>
+  </nav>
+  <!-- dialog contents -->
+</dialog>
+```
+
 ## Develop
 
 ```shell

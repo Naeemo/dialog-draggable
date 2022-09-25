@@ -6,10 +6,35 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dialog-draggable</title>
+    <style>
+        dialog {
+            padding: 0 0 1em;
+            background-color: lightgrey;
+        }
+        nav {
+            cursor: move;
+            background-color: lightgrey;
+            user-select: none;
+            padding: .5em 1em;
+        }
+        button {
+            float: right;
+        }
+        .dialog-content {
+            padding: 1em;
+            background-color: white;
+        }
+    </style>
 </head>
 <body style="background-color: lightskyblue;height: 100%;">
 <dialog id="dialog">
-    <h1>I am a dialog！</h1>
+    <nav data-dialog-draggable>
+        Dialog title
+        <button type="button">X</button>
+    </nav>
+    <div class="dialog-content">
+        <h1>I am a dialog！</h1>
+    </div>
 </dialog>
 <script type="module">
     let dd

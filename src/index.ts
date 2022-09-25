@@ -1,12 +1,44 @@
 import { getCssTranslateCoords } from './util'
 
+function getDraggableAncestor(path: EventTarget[]): null | HTMLDialogElement {
+    let draggableFlag = false
+    for (let i = 0; i < path.length; i++) {
+        const et = path[i] as HTMLElement
+
+        if (et.tagName === 'BUTTON' || et.tagName === 'A') {
+            return null
+        }
+
+        if (et.tagName === 'DIALOG' && draggableFlag) {
+            return et as HTMLDialogElement
+        }
+
+        if (et.dataset && Object.hasOwn(et.dataset, 'dialogDraggable')) {
+            draggableFlag = true
+        }
+    }
+
+    return null
+}
+
 const handlePointerDown = (pointerDownEvt: PointerEvent) => {
     const target = pointerDownEvt.target as HTMLElement
-    if (!target || target.tagName !== 'DIALOG') {
+    if (!target) {
         return
     }
 
-    const dialog = target
+    let dialog: HTMLDialogElement
+    if (target.tagName === 'DIALOG') {
+        dialog = target as HTMLDialogElement
+    } else {
+        const path = pointerDownEvt.composedPath()
+        const dialogAncestor = getDraggableAncestor(path)
+        if (!dialogAncestor) {
+            return
+        }
+        dialog = dialogAncestor as HTMLDialogElement
+    }
+
     const { x, y } = getCssTranslateCoords(dialog.style.transform)
     const xOffset = pointerDownEvt.clientX - dialog.offsetLeft - x
     const yOffset = pointerDownEvt.clientY - dialog.offsetTop - y
