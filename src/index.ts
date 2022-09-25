@@ -6,30 +6,31 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
         return
     }
 
-    const { x, y } = getCssTranslateCoords(target.style.transform)
-    const xOffset = pointerDownEvt.clientX - target.offsetLeft - x
-    const yOffset = pointerDownEvt.clientY - target.offsetTop - y
-    const xMin = -target.offsetLeft
-    const xMax = window.innerWidth - target.offsetLeft - target.offsetWidth
-    const yMin = -target.offsetTop
-    const yMax = window.innerHeight - target.offsetTop - target.offsetHeight
-    if (xOffset < 0 || xOffset > target.offsetWidth) {
+    const dialog = target
+    const { x, y } = getCssTranslateCoords(dialog.style.transform)
+    const xOffset = pointerDownEvt.clientX - dialog.offsetLeft - x
+    const yOffset = pointerDownEvt.clientY - dialog.offsetTop - y
+    const xMin = -dialog.offsetLeft
+    const xMax = window.innerWidth - dialog.offsetLeft - dialog.offsetWidth
+    const yMin = -dialog.offsetTop
+    const yMax = window.innerHeight - dialog.offsetTop - dialog.offsetHeight
+    if (xOffset < 0 || xOffset > dialog.offsetWidth) {
         return
     }
-    if (yOffset < 0 || yOffset > target.offsetHeight) {
+    if (yOffset < 0 || yOffset > dialog.offsetHeight) {
         return
     }
 
     function calculateTransform(pointerX: number, pointerY: number) {
-        const xMoved = pointerX - target.offsetLeft - xOffset
-        const yMoved = pointerY - target.offsetTop - yOffset
+        const xMoved = pointerX - dialog.offsetLeft - xOffset
+        const yMoved = pointerY - dialog.offsetTop - yOffset
         const x = Math.min(Math.max(xMin, xMoved), xMax)
         const y = Math.min(Math.max(yMin, yMoved), yMax)
 
-        target.style.transform = `translate3d(${x}px, ${y}px, 0)`
+        dialog.style.transform = `translate3d(${x}px, ${y}px, 0)`
     }
 
-    target.setPointerCapture(pointerDownEvt.pointerId)
+    dialog.setPointerCapture(pointerDownEvt.pointerId)
     const handleMove = (pointerMoveEvt: PointerEvent) =>
         calculateTransform(pointerMoveEvt.clientX, pointerMoveEvt.clientY)
 
@@ -40,15 +41,15 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
         calculateTransform(clientX, clientY)
     }
     const handleRelease = (pointerUpEvt: PointerEvent) => {
-        target.releasePointerCapture(pointerUpEvt.pointerId)
-        target.removeEventListener('pointermove', handleMove)
-        target.removeEventListener('touchmove', handleTouchMove)
-        target.removeEventListener('pointerup', handleRelease)
+        dialog.releasePointerCapture(pointerUpEvt.pointerId)
+        dialog.removeEventListener('pointermove', handleMove)
+        dialog.removeEventListener('touchmove', handleTouchMove)
+        dialog.removeEventListener('pointerup', handleRelease)
     }
 
-    target.addEventListener('pointermove', handleMove)
-    target.addEventListener('touchmove', handleTouchMove)
-    target.addEventListener('pointerup', handleRelease)
+    dialog.addEventListener('pointermove', handleMove)
+    dialog.addEventListener('touchmove', handleTouchMove)
+    dialog.addEventListener('pointerup', handleRelease)
 }
 
 export function makeDialogDraggable() {
