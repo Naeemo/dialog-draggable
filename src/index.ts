@@ -72,16 +72,19 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
         const clientY = touchMoveEvt.touches[0].clientY
         calculateTransform(clientX, clientY)
     }
-    const handleRelease = (pointerUpEvt: PointerEvent) => {
-        dialog.releasePointerCapture(pointerUpEvt.pointerId)
-        dialog.removeEventListener('pointermove', handleMove)
-        dialog.removeEventListener('touchmove', handleTouchMove)
-        dialog.removeEventListener('pointerup', handleRelease)
-    }
 
     dialog.addEventListener('pointermove', handleMove)
     dialog.addEventListener('touchmove', handleTouchMove)
-    dialog.addEventListener('pointerup', handleRelease)
+    // handle release
+    dialog.addEventListener(
+        'pointerup',
+        function (pointerUpEvt: PointerEvent) {
+            dialog.releasePointerCapture(pointerUpEvt.pointerId)
+            dialog.removeEventListener('pointermove', handleMove)
+            dialog.removeEventListener('touchmove', handleTouchMove)
+        },
+        { once: true }
+    )
 }
 
 export function makeDialogDraggable() {
