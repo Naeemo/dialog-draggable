@@ -20,21 +20,21 @@ describe('util', () => {
             z: 0,
         })
         expect(
-            getCssTranslateCoords(`translate3d(10px,1234.23423px,0)`)
+            getCssTranslateCoords(`translate3d(10px,1234.23423px,0)`),
         ).toEqual({
             x: 10,
             y: 1234.23423,
             z: 0,
         })
         expect(
-            getCssTranslateCoords(`translate3d(10px,-1234.23423px,0)`)
+            getCssTranslateCoords(`translate3d(10px,-1234.23423px,0)`),
         ).toEqual({
             x: 10,
             y: -1234.23423,
             z: 0,
         })
         expect(
-            getCssTranslateCoords(`translate3d(-314.113px, -5.5px, 0px);`)
+            getCssTranslateCoords(`translate3d(-314.113px, -5.5px, 0px);`),
         ).toEqual({
             x: -314.113,
             y: -5.5,

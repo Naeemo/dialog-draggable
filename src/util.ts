@@ -7,7 +7,7 @@ export function getCssTranslateCoords(transformExp: string): {
         return { x: 0, y: 0, z: 0 }
     }
     const matchResult = transformExp.match(
-        /translate3d\((?<x>[-.\d]+)(?:px)?,\s*(?<y>[-.\d]+)(?:px)?,\s*(?<z>[-.\d]+)(?:px)?\)/
+        /translate3d\((?<x>[-.\d]+)(?:px)?,\s*(?<y>[-.\d]+)(?:px)?,\s*(?<z>[-.\d]+)(?:px)?\)/,
     )
     if (!matchResult || !matchResult.groups) {
         return { x: 0, y: 0, z: 0 }

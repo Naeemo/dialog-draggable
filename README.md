@@ -17,7 +17,7 @@ Makes the HTML element [\<dialog\>] draggable.
 Install
 
 ```shell
-pnpm add dialog-draggable
+$ pnpm add dialog-draggable
 # yarn add dialog-draggable
 # npm i dialog-draggable
 ```
@@ -50,7 +50,9 @@ add `data-dialog-draggable` attribute to inner tags, so they can trigger the out
 ## Develop
 
 ```shell
-pnpm install
+# nvm use
+$ corepack enable
+$ pnpm install
 ```
 
 ### local dev preview

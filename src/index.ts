@@ -83,7 +83,7 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
             dialog.removeEventListener('pointermove', handleMove)
             dialog.removeEventListener('touchmove', handleTouchMove)
         },
-        { once: true }
+        { once: true },
     )
 }
 
