@@ -22,7 +22,7 @@ $ pnpm add dialog-draggable
 # npm i dialog-draggable
 ```
 
-make `<dialog>` draggable
+make all `<dialog>` elements draggable
 
 ```typescript
 import { makeDialogDraggable } from 'dialog-draggable';
@@ -52,7 +52,7 @@ add `data-dialog-draggable` attribute to inner tags, so they can trigger the out
 ```shell
 # nvm use
 $ corepack enable
-$ pnpm install
+$ pnpm install --frozen-lockfile
 ```
 
 ### local dev preview
