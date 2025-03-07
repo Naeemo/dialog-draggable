@@ -40,22 +40,16 @@ const handlePointerDown = (pointerDownEvt: PointerEvent) => {
     }
 
     const { x, y } = getCssTranslateCoords(dialog.style.transform)
-    const xOffset = pointerDownEvt.clientX - dialog.offsetLeft - x
-    const yOffset = pointerDownEvt.clientY - dialog.offsetTop - y
-    const xMin = -dialog.offsetLeft
-    const xMax = window.innerWidth - dialog.offsetLeft - dialog.offsetWidth
-    const yMin = -dialog.offsetTop
-    const yMax = window.innerHeight - dialog.offsetTop - dialog.offsetHeight
-    if (xOffset < 0 || xOffset > dialog.offsetWidth) {
-        return
-    }
-    if (yOffset < 0 || yOffset > dialog.offsetHeight) {
-        return
-    }
+    const xOffset = pointerDownEvt.clientX - x
+    const yOffset = pointerDownEvt.clientY - y
+    const xMin = -xOffset
+    const xMax = window.innerWidth - xOffset
+    const yMin = -yOffset
+    const yMax = window.innerHeight - yOffset
 
     function calculateTransform(pointerX: number, pointerY: number) {
-        const xMoved = pointerX - dialog.offsetLeft - xOffset
-        const yMoved = pointerY - dialog.offsetTop - yOffset
+        const xMoved = pointerX - xOffset
+        const yMoved = pointerY - yOffset
         const x = Math.min(Math.max(xMin, xMoved), xMax)
         const y = Math.min(Math.max(yMin, yMoved), yMax)
 
