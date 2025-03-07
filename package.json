@@ -1,6 +1,6 @@
 {
   "name": "dialog-draggable",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Makes HTML <dialog> draggable.",
   "packageManager": "pnpm@8.6.12",
   "type": "module",
