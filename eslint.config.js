@@ -1,29 +1,25 @@
-// ESLint Flat Config for ESLint v9+
 import js from "@eslint/js";
 import tseslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
 import prettierConfig from "eslint-config-prettier";
+
+const typescriptFiles = ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"];
+const typescriptRecommended = tseslint.configs["flat/recommended"].map((config) => ({
+  ...config,
+  files: config.files ?? typescriptFiles,
+}));
 
 export default [
   js.configs.recommended,
+  ...typescriptRecommended,
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: typescriptFiles,
     languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: "module",
-        project: "./tsconfig.json",
-      },
-    },
-    plugins: {
-      "@typescript-eslint": tseslint,
+      ecmaVersion: 2020,
+      sourceType: "module",
     },
     rules: {
-      ...tseslint.configs.recommended.rules,
       "@typescript-eslint/no-explicit-any": "error",
     },
   },
   prettierConfig,
 ];
-
